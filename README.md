@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="./images/logo.svg" width="120" alt="阳谋求解器" />
+  <img src="./images/logo.svg" width="120" alt="阳谋师 Skill" />
 </p>
 
-<h1 align="center">阳谋求解器 · Yangmou Solver</h1>
+<h1 align="center">阳谋师 Skill · Yangmou Master Skill</h1>
 
 <p align="center">
   <b>把「明牌博弈」方法论变成可复用的求解引擎——检索 + LLM 多层语义分析，覆盖销售 / 营销 / 管理 / 职场 / 投资 / 产品 / 谈判七领域。让对手看穿了也不得不按你的剧本走。</b>
@@ -31,7 +31,7 @@
 
 > **夫阳谋者，明牌之弈也。势虽暴露于敌前，而敌不能避者，非其愚也，乃为规则、人性、大势所制，两害相权取其轻，不得不循我之局而行。昔孙子言「不战而屈人之兵」，鬼谷子论「捭阖」，皆阳谋之祖。今商业与人际之争，客户压价、竞品环伺、同侪相轧，局局皆需明牌之智。本技能萃古之阳谋十书、八十有八例于一案，辅以检索与多层语义推演，使求谋者得破局之明牌，而不假阴谋诡道。**
 
-简言之：**阳谋求解器**是一套**跨 AI 开发工具通用的求解工作流**（原生支持 WorkBuddy / Codex / OpenCode，也可作为项目规则或对话上下文接入 Cursor / Claude Code / Codex CLI / Gemini CLI / Qwen Code / Trae 等）。它不是「给几条建议」的工具，而是一套**人机协作的求解工作流**：先通过多轮询问锁定你真实的博弈局面，再检索古今天下的阳谋案例，做六层语义分析（含现代领域翻译），最终交给你一个**对方明知是坑、也不得不跳的明牌方案**。
+简言之：**阳谋师 Skill**是一套**跨 AI 开发工具通用的求解工作流**（原生支持 WorkBuddy / Codex / OpenCode，也可作为项目规则或对话上下文接入 Cursor / Claude Code / Codex CLI / Gemini CLI / Qwen Code / Trae 等）。它不是「给几条建议」的工具，而是一套**人机协作的求解工作流**：先通过多轮询问锁定你真实的博弈局面，再检索古今天下的阳谋案例，做六层语义分析（含现代领域翻译），最终交给你一个**对方明知是坑、也不得不跳的明牌方案**。
 
 它把三件事一次性解决：**读懂你的局 → 匹配可迁移的阳谋原型 → 翻译成你所在领域的落地打法**。
 
@@ -111,7 +111,7 @@ cp yangmou/SKILL.md ./CLAUDE.md        # Claude Code（项目级）
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                yangmou 阳谋求解器                          │
+│                yangmou 阳谋师 Skill                          │
 │   输入：你的博弈困境（自然语言 / 场景描述）                │
 └───────────────────────────┬──────────────────────────────┘
                             ▼
@@ -199,7 +199,7 @@ MIT © 2026
 
 ## What is this?
 
-> **Yangmou Solver** is a **cross-tool solving workflow** (native on WorkBuddy / Codex / OpenCode; also usable as a project rule or chat context on Cursor / Claude Code / Codex CLI / Gemini CLI / Qwen Code / Trae, etc.). It is not a "give me some advice" tool. It is a **human-in-the-loop solving workflow**: first it pins down your real game through multi-round questioning, then retrieves yangmou (open-strategy) cases from across history, runs a six-layer semantic analysis (including modern-domain translation), and finally hands you an **open-board move** the opponent knows is a trap yet cannot avoid stepping into.
+> **Yangmou Master Skill** is a **cross-tool solving workflow** (native on WorkBuddy / Codex / OpenCode; also usable as a project rule or chat context on Cursor / Claude Code / Codex CLI / Gemini CLI / Qwen Code / Trae, etc.). It is not a "give me some advice" tool. It is a **human-in-the-loop solving workflow**: first it pins down your real game through multi-round questioning, then retrieves yangmou (open-strategy) cases from across history, runs a six-layer semantic analysis (including modern-domain translation), and finally hands you an **open-board move** the opponent knows is a trap yet cannot avoid stepping into.
 
 *Yangmou* (阳谋) = the open-board game: you lay the strategy in broad daylight, and the opponent, though they see through it, is bound by rules, human nature, or the larger trend to move per your script anyway. Sun Tzu's "subdue the enemy without fighting" is its ancestor.
 
@@ -277,7 +277,7 @@ Copy `SKILL.md` → paste into the chat → describe your game; get the plan per
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                yangmou  Yangmou Solver                     │
+│                yangmou  Yangmou Master Skill                     │
 │   Input: your game dilemma (natural language / scenario)   │
 └───────────────────────────┬──────────────────────────────┘
                             ▼
