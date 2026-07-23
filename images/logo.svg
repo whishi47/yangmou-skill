@@ -1,22 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120">
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="360" viewBox="0 0 360 360" role="img" aria-labelledby="title desc">
+  <title id="title">阳谋师 Skill 标识</title>
+  <desc id="desc">一张置于棋盘之上的明牌，象征以规则、人性与大势构成公开且不可回避的策略。</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#15152b"/>
-      <stop offset="1" stop-color="#0c0c18"/>
+    <linearGradient id="surface" x1="38" y1="28" x2="322" y2="334" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10233A"/>
+      <stop offset="1" stop-color="#06111F"/>
     </linearGradient>
-    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f7e08a"/>
-      <stop offset="1" stop-color="#c79a2e"/>
+    <linearGradient id="card" x1="114" y1="70" x2="245" y2="252" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F7E7A6"/>
+      <stop offset="1" stop-color="#D29B32"/>
     </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="15" flood-color="#020914" flood-opacity=".65"/>
+    </filter>
   </defs>
-  <rect width="120" height="120" rx="26" fill="url(#bg)"/>
-  <!-- 暗处旧牌（被替代的阴谋） -->
-  <rect x="40" y="44" width="44" height="44" rx="8" fill="#262645" opacity="0.55"/>
-  <!-- 明牌：浮起的金色方块 -->
-  <rect x="30" y="30" width="50" height="50" rx="10" fill="url(#gold)"/>
-  <rect x="30" y="30" width="50" height="50" rx="10" fill="none" stroke="#fff3c4" stroke-width="1.5" opacity="0.7"/>
-  <!-- 光束 -->
-  <path d="M55 30 L48 8 L62 8 Z" fill="url(#gold)" opacity="0.85"/>
-  <circle cx="55" cy="55" r="9" fill="#15152b"/>
-  <circle cx="55" cy="55" r="9" fill="none" stroke="#fff3c4" stroke-width="1.5"/>
+  <rect width="360" height="360" rx="78" fill="url(#surface)"/>
+  <rect x="31" y="31" width="298" height="298" rx="55" fill="none" stroke="#E4C16A" stroke-opacity=".32"/>
+  <g stroke="#B99542" stroke-opacity=".18" stroke-width="1.5">
+    <path d="M70 118H290M70 180H290M70 242H290"/>
+    <path d="M118 70V290M180 70V290M242 70V290"/>
+  </g>
+  <g fill="#EBCB76" fill-opacity=".7">
+    <circle cx="118" cy="280" r="5"/>
+    <circle cx="180" cy="280" r="5"/>
+    <circle cx="242" cy="280" r="5"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M94 107C94 88.222 109.222 73 128 73H232C250.778 73 266 88.222 266 107V219C266 237.778 250.778 253 232 253H128C109.222 253 94 237.778 94 219V107Z" fill="url(#card)"/>
+    <path d="M94 107C94 88.222 109.222 73 128 73H232C250.778 73 266 88.222 266 107V219C266 237.778 250.778 253 232 253H128C109.222 253 94 237.778 94 219V107Z" fill="none" stroke="#FFF5CB" stroke-width="4" stroke-opacity=".75"/>
+  </g>
+  <path d="M180 102L222 132V195L180 225L138 195V132L180 102Z" fill="#0B1B2E"/>
+  <path d="M180 120V207M147 139L213 188M213 139L147 188" stroke="#E9C86E" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="180" cy="164" r="17" fill="#F9EAB0"/>
+  <path d="M180 49V72M167 57H193" stroke="#F7E7A6" stroke-width="5" stroke-linecap="round"/>
 </svg>
