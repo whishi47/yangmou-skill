@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="./images/logo.svg" width="120" alt="Yangmou Solver" />
+  <img src="./images/logo.svg" width="120" alt="Yangmou Master Skill" />
 </p>
 
-<h1 align="center">Yangmou Solver · 阳谋求解器</h1>
+<h1 align="center">Yangmou Master Skill · 阳谋师 Skill</h1>
 
 <p align="center">
   <b>Turn the "open-board game" methodology into a reusable solving engine — retrieval + LLM multi-layer semantic analysis, covering seven domains: sales / marketing / management / workplace / investing / product / negotiation. Make the opponent walk your script even after seeing right through it.</b>
@@ -25,7 +25,7 @@
 
 ## What is this?
 
-> **Yangmou Solver** is a **cross-tool solving workflow** (native on WorkBuddy / Codex / OpenCode; also usable as a project rule or chat context on Cursor / Claude Code / Codex CLI / Gemini CLI / Qwen Code / Trae, etc.). It is not a "give me some advice" tool. It is a **human-in-the-loop solving workflow**: first it pins down your real game through multi-round questioning, then retrieves yangmou (open-strategy) cases from across history, runs a six-layer semantic analysis (including modern-domain translation), and finally hands you an **open-board move** the opponent knows is a trap yet cannot avoid stepping into.
+> **Yangmou Master Skill** is a **cross-tool solving workflow** (native on WorkBuddy / Codex / OpenCode; also usable as a project rule or chat context on Cursor / Claude Code / Codex CLI / Gemini CLI / Qwen Code / Trae, etc.). It is not a "give me some advice" tool. It is a **human-in-the-loop solving workflow**: first it pins down your real game through multi-round questioning, then retrieves yangmou (open-strategy) cases from across history, runs a six-layer semantic analysis (including modern-domain translation), and finally hands you an **open-board move** the opponent knows is a trap yet cannot avoid stepping into.
 
 It handles three things in one pass: **read your game → match a transferable yangmou prototype → translate it into actionable tactics for your domain.**
 
@@ -109,7 +109,7 @@ On first trigger, the skill asks four classes of questions **round by round** (2
 
 ```
 ┌──────────────────────────────────────────────────────────┐
-│                yangmou  Yangmou Solver                     │
+│                yangmou  Yangmou Master Skill                     │
 │   Input: your game dilemma (natural language / scenario)   │
 └───────────────────────────┬──────────────────────────────┘
                             ▼
