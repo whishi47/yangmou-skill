@@ -1,212 +1,168 @@
 <p align="center">
-  <img src="./images/logo.svg" width="120" alt="Yangmou Master Skill" />
+  <img src="./images/logo.svg" width="168" alt="Yangmou Master Skill mark" />
 </p>
 
-<h1 align="center">Yangmou Master Skill · 阳谋师 Skill</h1>
+<h1 align="center">Yangmou Master Skill</h1>
 
 <p align="center">
-  <b>Turn the "open-board game" methodology into a reusable solving engine — retrieval + LLM multi-layer semantic analysis, covering seven domains: sales / marketing / management / workplace / investing / product / negotiation. Make the opponent walk your script even after seeing right through it.</b>
-</p>
-
-<p align="center">
-  🇨🇳 <a href="./README.zh-CN.md">中文版</a> &nbsp;|&nbsp;
-  🇬🇧 <a href="./README.md">Bilingual (中英)</a>
+  <strong>Turn open-board strategy into an executable problem-solving workflow.</strong><br />
+  Start with a real dilemma, clarify it through four dialogue rounds, retrieve comparable cases, and produce an ethical, public, actionable strategy.
 </p>
 
 <p align="center">
-  <img alt="Cross-tool" src="https://img.shields.io/badge/cross--tool-compatible-00b4d8" />
-  <img alt="Agent Skills" src="https://img.shields.io/badge/format-Agent%20Skills-8b5cf6" />
-  <img alt="Domains" src="https://img.shields.io/badge/domains-7%20fields-8b5cf6" />
-  <img alt="Cases" src="https://img.shields.io/badge/cases-88-10b981" />
-  <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen" />
+  <a href="./README.zh-CN.md">中文</a> · <a href="./README.md">Bilingual</a> · <a href="#start-in-30-seconds">Start in 30 seconds</a> · <a href="#how-to-use-it">How to use it</a>
+</p>
+
+<p align="center">
+  <img alt="Agent Skills" src="https://img.shields.io/badge/format-Agent%20Skills-10233a" />
+  <img alt="Cases" src="https://img.shields.io/badge/cases-88-c89335" />
+  <img alt="Domains" src="https://img.shields.io/badge/domains-7-0f766e" />
+  <img alt="License" src="https://img.shields.io/badge/license-MIT-15803d" />
 </p>
 
 ---
 
-## What is this?
+## What problem does it solve?
 
-> **Yangmou Master Skill** is a **cross-tool solving workflow** (native on WorkBuddy / Codex / OpenCode; also usable as a project rule or chat context on Cursor / Claude Code / Codex CLI / Gemini CLI / Qwen Code / Trae, etc.). It is not a "give me some advice" tool. It is a **human-in-the-loop solving workflow**: first it pins down your real game through multi-round questioning, then retrieves yangmou (open-strategy) cases from across history, runs a six-layer semantic analysis (including modern-domain translation), and finally hands you an **open-board move** the opponent knows is a trap yet cannot avoid stepping into.
+Some situations are not solved by generic advice: a client keeps squeezing price, a cross-functional initiative is blocked, a competitor is closing in, a negotiation is stalled, or a product must change what users choose.
 
-It handles three things in one pass: **read your game → match a transferable yangmou prototype → translate it into actionable tactics for your domain.**
+Yangmou Master Skill does not rush to an answer. It first clarifies **who decides, what each person wants and fears, what real leverage you possess, who sets the rules, and what you cannot afford to lose**. It then matches one to three transferable patterns from 88 sourced cases and designs a public option that the other side can understand, yet still rationally choose because of rules, human incentives, or larger trends.
 
-*Yangmou* (阳谋) = the open-board game: you lay the strategy in broad daylight, and the opponent, though they see through it, is bound by rules, human nature, or the larger trend to move per your script anyway. The classic line from Sun Tzu — "subdue the enemy without fighting" — is its ancestor.
+> Yangmou is not deception or coercion. It does not use fake data, hidden clauses, or harm to others. It requires real value first, then places the open move on the table.
 
-## Highlights
+## Start in 30 seconds
 
-> **Ancient cases provide transferable "lock-in mechanisms"; the model reasons deeply on top of that case base — together they are both accurate and actionable.** — the core design of this skill
+**The simplest path:** import this repository as an Agent Skill in your AI tool, or provide the local directory to an AI that can read files. Then describe the situation in plain language.
 
-- **Real case base (88 cases):** 73 canonical cases (from ten books — *The Art of War*, *Guiguzi*, *Thirty-Six Stratagems*, *Fan Jing*, *Zizhi Tongjian*, *The Prince*, *On War*, *Hou Hei Xue*, *Blood Tribute Law*, *Hidden Rules*) carry **verbatim source quotes + source URLs**; 15 historical / business modern cases (Tesla, Costco, Netflix, Huawei, Ding Yuanjing's vinyl-record gambit, etc.) are likewise sourced.
-- **Multi-round questioning to pin the scene:** four dialogue rounds (scene framing → opponent profile → my leverage → red lines) force a vague "I want to win" into a precise "game description."
-- **Six-layer semantic analysis:** deconstruct → identify the lock-in mechanism (rules / human nature / the larger trend) → match prototypes → **modern-domain translation** → design the open move & build momentum → anticipate countermoves & defend.
-- **Seven domains, no favoritism:** sales / marketing / management / workplace / investing / product / negotiation. Every case carries full seven-domain tactics; you confirm the domain in round one.
-- **Lightweight semantic retrieval:** `scripts/retrieve.py` locates the most fitting prototype in seconds, filterable by pillar / domain / book.
-- **Clear boundaries — no cheating taught:** yangmou relies on real "momentum." No fakes, no hidden clauses, no mutual-harm schemes — those are yinmou (scheming) and backfire on retention and reputation.
+```text
+A client keeps demanding a lower price and using a competitor's quote against us.
+I need to protect margin without losing a long-term customer.
+Use Yangmou Master Skill to break down this situation.
+```
 
-## Supported AI tools (cross-tool)
+The AI should start by clarifying the situation, not immediately give a conclusion. It will ask questions in rounds, then build the strategy.
 
-The core files of this skill (`SKILL.md` / `references/*.md` / `references/cases.json` / `scripts/retrieve.py`) are plain Markdown / JSON / Python, **not bound to any single client**. Pick one of three ways depending on your tool:
+## How to use it
 
-| Way | Tools | How |
+### Trigger examples
+
+| Say this | What the skill does | What you receive |
 |---|---|---|
-| **① Native skill** (install) | WorkBuddy, Codex, OpenCode | Drop the `yangmou/` directory into the client's skills folder; trigger with plain language in chat |
-| **② Project rule / memory file** (fallback) | Claude Code (`CLAUDE.md` or `.claude/skills/`), Cursor (`.cursor/rules/*.mdc`), Codex CLI / Gemini CLI / Qwen Code (`AGENTS.md` / `GEMINI.md`), Windsurf (`.windsurf/rules/`), Cline (`.clinerules`), GitHub Copilot (`.github/copilot-instructions.md`), Trae / Tongyi Lingma (project rules) | Copy `SKILL.md` (full or abridged) into that project-instruction file; the tool then follows the workflow |
-| **③ Chat context** (zero-config) | ChatGPT Web, any web / app chat | Paste `SKILL.md` into the chat and describe your game; get the plan per the workflow |
+| “The client keeps pressing price. How do I negotiate?” | Recognizes a sales / negotiation situation and starts the four rounds | An actionable negotiation structure and open moves |
+| “How do I improve member retention?” | Confirms marketing / product context and retrieves rule-based cases | Retention, pricing, or mechanism options |
+| “A cross-functional project keeps getting delayed. How do I move it?” | Recognizes a management situation and asks about decision paths and blockers | A path forward, alliances, and countermeasure plan |
+| “Explain what yangmou is.” | Reads `references/阳谋原理.md` | A principles explanation, without forcing the full flow |
+| “Give me a yangmou for a difficult client.” | Starts the complete workflow | A full public-strategy plan after clarification |
+| Paste a long situation | Condenses it into a “game description” | Case matching and an action checklist |
 
-> This skill is a reasoning / knowledge workflow — it does not auto-edit your code, so even without native support, ways ② / ③ work with almost no loss. To run retrieval locally for speed, execute `python scripts/retrieve.py "..."` in any tool's terminal.
+### What happens after you trigger it?
 
-## Get started
-
-### Prerequisites
-
-```bash
-# 1. Any supported AI dev tool (see "Supported AI tools" above; zero-dependency)
-# 2. Recommended: a high-reasoning model (Claude Opus 4.6 / DeepSeek v4 Pro / GPT-5.6)
-# 3. (Optional) Python 3.10+ to run the retriever locally
-python --version   # 3.10+ suggested
+```mermaid
+flowchart TD
+    A[Describe the dilemma] --> B[Confirm domain and outcome]
+    B --> C[Four rounds of clarification]
+    C --> C1[Scene]
+    C --> C2[Opponent]
+    C --> C3[Leverage]
+    C --> C4[Red lines]
+    C1 --> D[Game description]
+    C2 --> D
+    C3 --> D
+    C4 --> D
+    D --> E[Search 88 sourced cases]
+    E --> F[Match 1-3 patterns]
+    F --> G[Six-layer reasoning]
+    G --> H[Public open-board strategy]
+    H --> I[Action order, risks, and counters]
 ```
 
-### Install the skill
+### Step 1: Four rounds of clarification
 
-**Way A · Native skill (WorkBuddy / Codex / OpenCode)**
-```bash
-git clone https://github.com/whishi47/yangmou-skill.git \
-  "$HOME/.workbuddy/skills/yangmou"   # WorkBuddy
-# Codex:    $HOME/.codex/skills/yangmou
-# OpenCode: $HOME/.config/opencode/skills/yangmou
-```
+The AI asks **one round at a time**, rather than dumping a long questionnaire. Each round usually contains two to four focused questions.
 
-**Way B · As a project rule / memory file (Claude Code / Cursor / Codex CLI / Gemini CLI / Qwen Code / Windsurf / Cline / Copilot / Trae, etc.)**
+| Round | What it clarifies | Typical question |
+|---|---|---|
+| Scene | Domain, role, desired result | “Is this a one-off deal or a long-term relationship?” |
+| Opponent | Real decision-maker, incentives, fears | “Who signs off, and which risk do they fear owning?” |
+| Leverage | Your real assets, value, and rule-setting power | “What advantage can you openly show? Who defines the standard?” |
+| Red lines | Time, limits, concessions, failure cost | “What is the furthest you can concede? What changes in two weeks?” |
+
+When your initial description already has enough detail, rounds may merge. The skill must still confirm both the opponent's wants or fears and your leverage or rule-setting power before designing the strategy.
+
+### Step 2: Case retrieval
+
+The skill selects one to three fitting patterns from `references/cases.json`. It does not blindly copy an old story.
+
+- **73 canonical cases** from ten works including *The Art of War*, *Guiguzi*, *Thirty-Six Stratagems*, and *Zizhi Tongjian*, with source text and URLs.
+- **15 historical and business cases** including Tesla's open patents, Costco membership, Netflix rule resets, and Huawei HarmonyOS.
+- Every case includes translations for seven domains: sales, marketing, management, workplace, investing, product, and negotiation.
+
+### Step 3: Six-layer reasoning
+
+A finished answer is not “communicate more” or “offer a discount.” It must complete these layers:
+
+1. **Deconstruct the situation**: participants, goals, blockers, and rules.
+2. **Find the lock-in mechanism**: whether rules, human incentives, or larger trends constrain the other side.
+3. **Match a pattern**: transfer the structure rather than copy a historical anecdote.
+4. **Translate into your domain**: turn it into modern pricing, mechanism, alliance, product, or negotiation actions.
+5. **Design the open move and momentum**: decide what to make public and how each party gains reason to choose it.
+6. **Anticipate counters**: prepare defenses, alternatives, and an ordered short-term plan.
+
+## Connecting it to AI tools
+
+This is not a plugin that automatically runs just because it is copied to a fixed folder. It is a workflow in the **Agent Skills** format. The correct connection method depends on whether your AI tool supports skill directories, project instructions, or file context.
+
+| Your tool can | Recommended connection | What to do |
+|---|---|---|
+| Load Agent Skills | Native import | Follow the tool's official instructions to import the whole `yangmou/` directory as a skill |
+| Read project instructions | Project reference | Keep the repository in the project and instruct the AI to read and follow `yangmou/SKILL.md` |
+| Upload or attach files | File context | Attach `SKILL.md`; attach `references/` or the full directory when case retrieval is needed |
+| Only chat | Chat context | Paste the core of `SKILL.md`, then describe the dilemma. Local retrieval cannot run automatically in this mode |
+
+**Examples:** tools with Agent Skills support, such as WorkBuddy, OpenAI Codex, and OpenCode, can use native import first. Claude Code, Cursor, Windsurf, Cline, GitHub Copilot, Gemini CLI, Qwen Code, and Trae should use their current official project-rule, file-context, or skill mechanism. Client configuration locations change over time, so this README intentionally does not hard-code fragile paths.
+
+## Optional local retrieval
+
+You do not need Python or any dependency to discuss a situation with an AI. Python 3.10+ is only needed when you want to query the case base directly on your machine.
+
 ```bash
+# Download the repository
 git clone https://github.com/whishi47/yangmou-skill.git
-# Copy SKILL.md into your project-instruction file, e.g.:
-cp yangmou/SKILL.md ./CLAUDE.md        # Claude Code (project-level)
-# Cursor  → .cursor/rules/yangmou.mdc
-# Codex CLI / Gemini CLI / Qwen Code → AGENTS.md / GEMINI.md
-# Windsurf → .windsurf/rules/yangmou.md
-# Cline    → .clinerules
-# Copilot  → .github/copilot-instructions.md
-# Trae / Tongyi Lingma → paste SKILL.md into IDE "project rules"
+cd yangmou-skill
+
+# Optional: search the case base locally
+python scripts/retrieve.py "client pressing price hard, protect margin" --top 3
+python scripts/retrieve.py "move a cross-functional project" --field 管理 --top 3
+python scripts/retrieve.py "membership retention mechanism" --pillar 规则 --top 5
+python scripts/retrieve.py "subdue the enemy without fighting" --book 孙子兵法 --top 3
 ```
 
-**Way C · Paste into chat (ChatGPT Web / any chat)**
-Copy `SKILL.md` → paste into the chat → describe your game; get the plan per the workflow.
+## What a complete answer includes
 
-> On Windows `$HOME` is usually `C:\Users\your-username`. Skills folders differ by client (`.workbuddy` / `.codex` / `.config/opencode`). No build step, no dependencies.
+- A clear description of your situation, real decision path, and conflict point.
+- The mechanism binding the other side and why they may choose the open move even after seeing it.
+- One or two matched cases and the transferable elements.
+- The public move, supporting mechanism, and momentum-building actions.
+- Likely counters, defenses, and alternatives.
+- A prioritized short-term action list.
 
-### Usage
+## Repository map
 
-| Trigger | Action | Result |
-|---|---|---|
-| 💬 Natural language | "The client keeps pressing the price, how do I negotiate" | Start skill, enter four-round questioning |
-| 💬 Natural language | "How do I lock in repeat customers" | Jump to domain confirm + retrieval |
-| 💬 Natural language | "Explain what yangmou is" | Read the principles doc, skip the full flow |
-| 💬 Natural language | "Give me a yangmou to handle a tough client" | Questioning → analysis → open-board plan |
-| 📎 Scene description | Paste a long game dilemma | Compress into a "game description" and retrieve |
-
-On first trigger, the skill asks four classes of questions **round by round** (2~4 of the same kind per round, advance after you answer): **scene framing**, **opponent profile**, **my leverage**, **red lines**. If you already gave enough in round one, rounds merge, but at least "opponent's want/fear" and "my leverage/rule-power" must be confirmed.
-
-## How it works
-
-```
-┌──────────────────────────────────────────────────────────┐
-│                yangmou  Yangmou Master Skill                     │
-│   Input: your game dilemma (natural language / scenario)   │
-└───────────────────────────┬──────────────────────────────┘
-                            ▼
-   ┌──────────────────────────────────────────────┐
-   │ ① Four-round questioning (dialogue)           │
-   │   scene → opponent → leverage → red lines     │
-   │   → compress into an 80~150 char "game desc"  │
-   └──────────────────────┬───────────────────────┘
-                           ▼
-   ┌──────────────────────────────────────────────┐
-   │ ② Retrieve from case base                     │
-   │   scripts/retrieve.py "game desc" --top 3      │
-   │   (opt --pillar rules|nature|trend            │
-   │       --field 7-domains --book title)          │
-   │   → 1~3 best-fit prototypes                    │
-   └──────────────────────┬───────────────────────┘
-                           ▼
-   ┌──────────────────────────────────────────────┐
-   │ ③ Six-layer semantic analysis                 │
-   │   deconstruct → lock-in(3 pillars) → match    │
-   │   → modern-domain translation → open move     │
-   │   → anticipate countermoves & defend          │
-   │   → 3 things to do this week                  │
-   └──────────────────────────────────────────────┘
-```
-
-**Step ① Four-round questioning:** turn a vague want into a precise "game description" covering your role, the decision-maker / opponent, each side's wants & fears, your leverage, who sets the rules, the time window and bottom line.
-
-**Step ② Retrieval:** feed the "game description" to `retrieve.py`, which locates `references/cases.json` and returns 1~3 prototypes in seconds; narrow with `--pillar / --field / --book`.
-
-**Step ③ Six-layer analysis:** pick 1~2 best-fit prototypes, name the "lock-in mechanism" (which of rules / human nature / the larger trend binds the opponent), translate it into your domain's modern tactics via `现代领域迁移.md`'s tables, design the public "open move" and the "momentum" to build, then anticipate countermoves and defend each.
-
-## Case base
-
-`references/cases.json` holds **88** structured cases:
-
-- **73 canonical cases** (ten books): Art of War (8), Guiguzi (8), Thirty-Six Stratagems (10), Fan Jing (8), Zizhi Tongjian (7), The Prince (8), On War (8), Hou Hei Xue (8), Blood Tribute Law (4), Hidden Rules (4). Each has `source_text` verbatim quote + `source_url` + `lock_mechanism` + `transfer_models` + `fields` (seven-domain tactics).
-- **15 historical / business modern cases:** Wei-Prince-saves-Zhao-style management, Tesla's open patents, Costco membership, Netflix's rule rebuild, Huawei's open HarmonyOS architecture, Ding Yuanjing's vinyl gambit, etc. — all sourced.
-
-A sourced index of the 73 canonical cases (quotes + URLs + seven-domain tactics) is in `references/原典阳谋.md`.
-
-## Bundled script
-
-### `scripts/retrieve.py`
-
-A zero-dependency lightweight semantic retriever (bigram matching). It does not call a model, so it is fast and deterministic. It auto-locates `references/cases.json`.
-
-```bash
-# Basic: return the top 3 prototypes
-python scripts/retrieve.py "client pressing price hard negotiation" --top 3
-
-# Limit by pillar (rules / human nature / the larger trend)
-python scripts/retrieve.py "how to lock in members" --pillar 规则 --top 5
-
-# Limit by domain (sales/marketing/management/workplace/investing/product/negotiation)
-python scripts/retrieve.py "marketing viral channels" --field 营销 --top 3
-
-# Limit by a specific book
-python scripts/retrieve.py "subdue enemy without fighting" --book 孙子兵法 --top 3
-```
-
-| Argument | Description |
-|----------|-------------|
-| positional | Scenario description (natural language; the more specific, the better) |
-| `--top N` | Return top N prototypes (default 3) |
-| `--pillar` | One of the three pillars: `规则` / `人性` / `大势` |
-| `--field` | Domain: `销售` / `营销` / `管理` / `职场` / `投资` / `产品` / `谈判` |
-| `--book` | Book title substring filter (e.g. `孙子兵法` / `鬼谷子` / `三十六计` / `反经`) |
-
-## Directory layout
-
-```
-yangmou/
-├── SKILL.md                          # Skill definition (workflow)
-├── README.md                         # Bilingual (中英)
-├── README.en.md                      # English version
-├── README.zh-CN.md                   # Chinese version
-├── images/
-│   └── logo.svg                      # Logo used in docs
-├── LICENSE                           # MIT license
-├── references/
-│   ├── cases.json                    # Structured case base (retrieval, 88 cases)
-│   ├── 原典阳谋.md                    # Sourced index of canonical cases (73)
-│   ├── 书籍索引.md                    # Books to ingest next + spec
-│   ├── 阳谋原理.md                    # Principles, 3 pillars, vs yinmou, bounds
-│   ├── 阳谋多场景.md                  # Multi-domain maps, question bank, 6-layer, template
-│   └── 现代领域迁移.md                # Pillar translation, psych/pricing tables, worksheet
-└── scripts/
-    └── retrieve.py                   # Lightweight semantic retriever
+```text
+SKILL.md                 Workflow and trigger rules
+references/cases.json    88 structured cases
+references/阳谋原理.md  Principles, three pillars, and boundaries
+references/阳谋多场景.md Domain maps, question bank, and output templates
+references/现代领域迁移.md Translation from classical patterns to modern business
+references/原典阳谋.md  Sourced index of 73 canonical cases
+scripts/retrieve.py      Optional local case retriever
 ```
 
 ## Boundaries
 
-- **No cheating taught:** no fake data, no hidden clauses, no misleading clients — that is yinmou (scheming) and backfires on retention and reputation. Yangmou relies on real momentum.
-- **No mutual harm:** "two peaches kill three scholars"-type schemes are used only to spark healthy urgency or divide competitors, never to wreck a client's own team.
-- **Substance first:** if your product / value does not hold up, build the substance before flashing an open board, or it backfires.
-- **Evidence before suspicion chains:** suspicion-triggering prototypes need real evidence, or they backfire on reputation.
+- No fake data, deception, hidden clauses, extortion, or harm to others.
+- Cases involving internal conflict or suspicion may be used only for lawful, healthy competitive analysis, never to damage a client or team.
+- If value, product, or delivery cannot stand up, build substance before using open-board strategy.
 
 ## License
 
