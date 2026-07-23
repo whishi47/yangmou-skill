@@ -30,6 +30,8 @@ Yangmou Master Skill does not rush to an answer. It first clarifies **who decide
 
 > Yangmou is not deception or coercion. It does not use fake data, hidden clauses, or harm to others. It requires real value first, then places the open move on the table.
 
+> ⚠️ **Disclaimer**: This skill is for educational and business strategy reference only. All cases are based on publicly documented game-theory principles and historical strategy analysis. The content does not involve, allude to, or comment on any political issues, historical evaluations, or current systems, and does not represent any political stance.
+
 ## Start in 30 seconds
 
 **The simplest path:** import this repository as an Agent Skill in your AI tool, or provide the local directory to an AI that can read files. Then describe the situation in plain language.
