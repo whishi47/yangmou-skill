@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-i18n-title="install_title" data-i18n-description="install_copy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>安装阳谋师 Skill</title>
+  <meta name="description" content="一条命令安装阳谋师 Agent Skill。">
+  <meta name="theme-color" content="#f6f7f2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Yangmou home">
+        <span>阳谋师</span>
+        <small>Yangmou Atlas</small>
+      </a>
+      <nav class="nav" aria-label="主导航" data-i18n-aria-label="primary_navigation">
+        <a href="index.html" data-i18n="home">主页</a>
+        <a href="gallery.html" data-i18n="gallery">案例画廊</a>
+        <a href="flows.html" data-i18n="flows_nav">使用流程</a>
+        <a href="https://github.com/whishi47/yangmou-skill" target="_blank" rel="noopener">GitHub</a>
+        <a class="install-link" href="install.html" aria-current="page" data-i18n="install_skill">安装技能</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main install-page">
+    <section class="install-intro">
+      <p class="hero-note" data-i18n="install_skill">安装技能</p>
+      <h1 data-i18n="install_title">安装阳谋师 Skill</h1>
+      <p data-i18n="install_copy">一条命令即可把阳谋师安装为 Agent Skill，首页、案例画廊和 Flow 图会保持同步。</p>
+    </section>
+
+    <section class="command-panel" aria-labelledby="install-command-heading">
+      <div class="command-bar">
+        <span data-i18n="install_global">全局安装</span>
+        <button class="copy-button" id="copy-install" type="button" data-i18n="install_copy_cmd">复制命令</button>
+      </div>
+      <pre id="install-command">npx -y skills add whishi47/yangmou-skill --skill yangmou --agent codex --global --copy --yes</pre>
+      <p class="secondary-note" data-i18n="install_notes">支持 Codex、Cursor、Claude Code、OpenCode 等 Agent Skills 运行环境。安装后直接在对话里描述一个博弈困境即可触发。</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Yangmou Skill · 阳谋师</span>
+      <span data-i18n="footer_note">MIT © 2026</span>
+    </div>
+  </footer>
+
+  <script src="assets/cases.js"></script>
+  <script src="assets/install.js"></script>
+</body>
+</html>
