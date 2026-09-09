@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-i18n-title="home_title" data-i18n-description="home_description">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阳谋师 · 明牌案例图谱</title>
+  <meta name="description" content="88 条阳谋案例的静态可视化图谱，覆盖历史、原典与商业迁移。">
+  <meta name="theme-color" content="#f6f7f2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Yangmou home">
+        <span>阳谋师</span>
+        <small>Yangmou Atlas</small>
+      </a>
+      <nav class="nav" aria-label="主导航" data-i18n-aria-label="primary_navigation">
+        <a href="index.html" aria-current="page" data-i18n="home">主页</a>
+        <a href="gallery.html" data-i18n="gallery">案例画廊</a>
+        <a href="flows.html" data-i18n="flows_nav">使用流程</a>
+        <a href="https://github.com/whishi47/yangmou-skill" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main">
+    <section class="hero">
+      <div>
+        <p class="hero-note" data-i18n="hero_note">明牌博弈 · 可视化 · 可迁移</p>
+        <h1 data-i18n="hero_title">把 88 个明牌博弈，变成一套案例图谱</h1>
+        <p data-i18n="hero_copy">从推恩令到特斯拉专利开放，从孙子兵法到网飞规则：先看古案如何锁死局势，再看怎样迁移到销售、营销、管理、职场、投资、产品与谈判。</p>
+      </div>
+      <div class="stats" aria-label="案例图谱概览">
+        <div class="stat">
+          <strong id="stat-cases">88</strong>
+          <span data-i18n="case_count">案例总数</span>
+        </div>
+        <div class="stat">
+          <strong id="stat-books">10</strong>
+          <span data-i18n="book_count">原典书目</span>
+        </div>
+        <div class="stat">
+          <strong>7</strong>
+          <span data-i18n="field_count">领域打法</span>
+        </div>
+        <div class="stat">
+          <strong>3</strong>
+          <span data-i18n="pillar_count">阳谋支柱</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band" aria-labelledby="pillar-heading">
+      <div class="section-head">
+        <h2 id="pillar-heading" data-i18n="pillar_title">三个支柱，锁住对方的理性选择</h2>
+        <p data-i18n="pillar_copy">阳谋的关键不是藏牌，而是让对手看穿之后仍因规则、人性或大势而只能走你想要的那条路。</p>
+      </div>
+      <div class="trio-grid" id="pillar-grid">
+        <div class="trio-block">
+          <h3 data-i18n="pillar_rule_name">规则</h3>
+          <p data-i18n="pillar_rule">重新设计裁判、标准、名额、分润或决策流，让反对者按新规则行动时反而帮你推进。</p>
+        </div>
+        <div class="trio-block">
+          <h3 data-i18n="pillar_human_name">人性</h3>
+          <p data-i18n="pillar_human">利用荣誉、稀缺、对比、损失厌恶与社交证明，让当事人主动内卷或抢先行动。</p>
+        </div>
+        <div class="trio-block">
+          <h3 data-i18n="pillar_trend_name">大势</h3>
+          <p data-i18n="pillar_trend">站在时间、成本、规模或信息差的势头上，把对抗变成顺势而为。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-band" aria-labelledby="field-heading">
+      <div class="section-head">
+        <h2 id="field-heading" data-i18n="field_title">一套古案，七个现代领域</h2>
+        <p data-i18n="field_copy">每一条案例都带七领域迁移，直接看它如何翻译成今天的动作。</p>
+      </div>
+      <div class="field-list" id="field-grid">
+        <a href="gallery.html?field=销售" data-i18n="field_sales">销售</a>
+        <a href="gallery.html?field=营销" data-i18n="field_marketing">营销</a>
+        <a href="gallery.html?field=管理" data-i18n="field_management">管理</a>
+        <a href="gallery.html?field=职场" data-i18n="field_workplace">职场</a>
+        <a href="gallery.html?field=投资" data-i18n="field_investing">投资</a>
+        <a href="gallery.html?field=产品" data-i18n="field_product">产品</a>
+        <a href="gallery.html?field=谈判" data-i18n="field_negotiation">谈判</a>
+      </div>
+    </section>
+
+    <section class="section-band" aria-labelledby="book-heading">
+      <div class="section-head">
+        <h2 id="book-heading" data-i18n="book_title">原典十书</h2>
+        <p data-i18n="book_copy">每一条原典案例都带原文、出处与七领域打法。</p>
+      </div>
+      <div class="book-list" id="book-list"></div>
+    </section>
+
+    <section class="section-band" aria-labelledby="flow-heading">
+      <div class="section-head">
+        <h2 id="flow-heading" data-i18n="flow_heading">模拟用户使用流程</h2>
+        <p data-i18n="flow_copy">用四条链路演示用户从困境出发，如何使用阳谋师 Skill 拿到明牌方案。</p>
+      </div>
+      <div class="flow-preview-grid">
+        <a href="flows.html#sales-price">
+          <img src="images/flows/sales-price.png" alt="销售压价局流程图" data-i18n-alt="flow_sales_price" loading="lazy">
+          <span data-i18n="flow_sales_price">销售压价局</span>
+        </a>
+        <a href="flows.html#cross-department">
+          <img src="images/flows/cross-department.png" alt="跨部门推进流程图" data-i18n-alt="flow_cross_department" loading="lazy">
+          <span data-i18n="flow_cross_department">跨部门推进</span>
+        </a>
+        <a href="flows.html#member-retention">
+          <img src="images/flows/member-retention.png" alt="会员复购流程图" data-i18n-alt="flow_member_retention" loading="lazy">
+          <span data-i18n="flow_member_retention">会员复购</span>
+        </a>
+        <a href="flows.html#workplace-recognition">
+          <img src="images/flows/workplace-recognition.png" alt="职场明牌流程图" data-i18n-alt="flow_workplace_recognition" loading="lazy">
+          <span data-i18n="flow_workplace_recognition">职场明牌</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Yangmou Skill · 阳谋师</span>
+      <span data-i18n="footer_note">MIT © 2026</span>
+    </div>
+  </footer>
+
+  <script src="assets/cases-data.js"></script>
+  <script src="assets/cases.js"></script>
+  <script src="assets/home.js"></script>
+</body>
+</html>
