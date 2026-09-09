@@ -89,8 +89,8 @@ function renderCaseCard(caseItem) {
   const summary = en && en.summary ? en.summary : caseItem.summary;
   const bookName = lang === "en" && window.yangmouBookLabels[caseItem.book] ? window.yangmouBookLabels[caseItem.book] : caseItem.book;
   const label = (key) => escapeHtml(DETAIL_LABELS[key][lang] || DETAIL_LABELS[key].zh);
-  const fieldName = (key) => escapeHtml(FIELD_LABELS[key] || key);
-  const pillarName = (p) => escapeHtml(PILLAR_LABELS[p] || p);
+  const fieldName = (key) => escapeHtml(lang === "en" ? (FIELD_LABELS[key] || key) : key);
+  const pillarName = (p) => escapeHtml(lang === "en" ? (PILLAR_LABELS[p] || p) : p);
   const pillars = (caseItem.pillars || []).map(p => `<span class="${window.yangmou.pillarClass(p)}">${pillarName(p)}</span>`).join("");
   const tags = (caseItem.tags || []).map(t => `<span>${escapeHtml(t)}</span>`).join("<span class=\"tag-sep\">·</span>");
   const fields = Object.entries(caseItem.fields || {}).map(([key, value]) => `<div class="field-box"><h5>${fieldName(key)}</h5><p>${escapeHtml(value)}</p></div>`).join("");
