@@ -84,6 +84,10 @@ function detailBlock(title, value, lang) {
 
 function renderCaseCard(caseItem) {
   const lang = window.yangmou.getLang();
+  const en = lang === "en" ? (window.YANGMOU_CASES_EN || {})[caseItem.id] : null;
+  const name = en && en.name ? en.name : caseItem.name;
+  const summary = en && en.summary ? en.summary : caseItem.summary;
+  const bookName = lang === "en" && window.yangmouBookLabels[caseItem.book] ? window.yangmouBookLabels[caseItem.book] : caseItem.book;
   const label = (key) => escapeHtml(DETAIL_LABELS[key][lang] || DETAIL_LABELS[key].zh);
   const fieldName = (key) => escapeHtml(FIELD_LABELS[key] || key);
   const pillarName = (p) => escapeHtml(PILLAR_LABELS[p] || p);
@@ -91,19 +95,19 @@ function renderCaseCard(caseItem) {
   const tags = (caseItem.tags || []).map(t => `<span>${escapeHtml(t)}</span>`).join("<span class=\"tag-sep\">·</span>");
   const fields = Object.entries(caseItem.fields || {}).map(([key, value]) => `<div class="field-box"><h5>${fieldName(key)}</h5><p>${escapeHtml(value)}</p></div>`).join("");
   const source = caseItem.source_url ? `<p class="source-link"><a href="${escapeHtml(caseItem.source_url)}" target="_blank" rel="noopener">${escapeHtml(caseItem.source_url)}</a></p>` : "";
-  const sourceText = caseItem.source_text ? `<div class="detail-block"><h4>${label("source_text")}</h4><blockquote>${escapeHtml(caseItem.source_text)}</blockquote></div>` : "";
+  const sourceText = caseItem.source_text && lang === "zh" ? `<div class="detail-block"><h4>${label("source_text")}</h4><blockquote>${escapeHtml(caseItem.source_text)}</blockquote></div>` : "";
 
   return `<details class="case-card" id="${escapeHtml(caseItem.id)}">
     <summary class="case-card-summary">
       <div class="case-kicker">
         <span class="type">${escapeHtml(lang === "en" ? TYPE_LABELS[caseItem.type] || caseItem.type : caseItem.type)}</span>
         <span>${escapeHtml(caseItem.era || "")}</span>
-        <span>${escapeHtml(caseItem.book || (lang === "en" ? "Business case" : "商业案例"))}</span>
+        <span>${escapeHtml(bookName || (lang === "en" ? "Business case" : "商业案例"))}</span>
       </div>
-      <h3>${escapeHtml(caseItem.name)}</h3>
-      <p class="summary">${escapeHtml(caseItem.summary)}</p>
+      <h3>${escapeHtml(name)}</h3>
+      <p class="summary">${escapeHtml(summary)}</p>
       <div class="pillar-row">${pillars}</div>
-      ${tags ? `<div class="tag-row">${tags}</div>` : ""}
+      ${lang === "zh" && tags ? `<div class="tag-row">${tags}</div>` : ""}
     </summary>
     <div class="details-body">
       ${detailBlock(label("background"), caseItem.background)}
