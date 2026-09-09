@@ -70,6 +70,13 @@ const I18N = {
   "book_label": { zh: "原典", en: "Classic" },
   "type_label": { zh: "类型", en: "Type" },
   "all": { zh: "全部", en: "All" },
+  "install_skill": { zh: "安装技能", en: "Install Skill" },
+  "install_title": { zh: "安装阳谋师 Skill", en: "Install Yangmou Skill" },
+  "install_copy": { zh: "一条命令即可把阳谋师安装为 Agent Skill，首页、案例画廊和 Flow 图会保持同步。", en: "Install Yangmou as an Agent Skill with one command; the home, gallery, and flow pages stay in sync." },
+  "install_global": { zh: "全局安装", en: "Global install" },
+  "install_copy_cmd": { zh: "复制命令", en: "Copy command" },
+  "install_copied": { zh: "已复制", en: "Copied" },
+  "install_notes": { zh: "支持 Codex、Cursor、Claude Code、OpenCode 等 Agent Skills 运行环境。安装后直接在对话里描述一个博弈困境即可触发。", en: "Works with Agent Skills runtimes including Codex, Cursor, Claude Code, and OpenCode. After install, describe a strategic dilemma in chat to trigger the workflow." },
 };
 
 const BOOK_LABELS = {
