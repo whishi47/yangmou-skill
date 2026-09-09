@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-i18n-title="gallery_page_title" data-i18n-description="gallery_description">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>阳谋师 · 案例画廊</title>
+  <meta name="description" content="按领域、支柱、原典与类型浏览 88 条阳谋案例。">
+  <meta name="theme-color" content="#f6f7f2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=EB+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html" aria-label="Yangmou home">
+        <span>阳谋师</span>
+        <small>Yangmou Atlas</small>
+      </a>
+      <nav class="nav" aria-label="主导航" data-i18n-aria-label="primary_navigation">
+        <a href="index.html" data-i18n="home">主页</a>
+        <a href="gallery.html" aria-current="page" data-i18n="gallery">案例画廊</a>
+        <a href="flows.html" data-i18n="flows_nav">使用流程</a>
+        <a href="https://github.com/whishi47/yangmou-skill" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-main gallery-page">
+    <section class="gallery-intro">
+      <div>
+        <p class="hero-note" data-i18n="gallery_note">88 条案例 · 七领域迁移 · 可深链</p>
+        <h1 data-i18n="gallery_title">案例画廊</h1>
+        <p data-i18n="gallery_copy">按领域、支柱、原典与类型筛选，展开任意案例查看锁死机制、明牌动作、结果和现代打法。</p>
+      </div>
+    </section>
+
+    <section class="filter-grid" aria-label="筛选案例" data-i18n-aria-label="filter_cases">
+      <div class="filter-field">
+        <label for="field-filter" data-i18n="field_label">领域</label>
+        <select id="field-filter">
+          <option value="" data-i18n="all">全部</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="pillar-filter" data-i18n="pillar_label">支柱</label>
+        <select id="pillar-filter">
+          <option value="" data-i18n="all">全部</option>
+          <option value="规则">规则</option>
+          <option value="人性">人性</option>
+          <option value="大势">大势</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="book-filter" data-i18n="book_label">原典</label>
+        <select id="book-filter">
+          <option value="" data-i18n="all">全部</option>
+        </select>
+      </div>
+      <div class="filter-field">
+        <label for="type-filter" data-i18n="type_label">类型</label>
+        <select id="type-filter">
+          <option value="" data-i18n="all">全部</option>
+        </select>
+      </div>
+    </section>
+
+    <div class="gallery-meta" data-i18n="result_count_label" data-count="88">显示 88 条案例</div>
+    <div class="case-grid" id="case-grid" aria-live="polite"></div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>Yangmou Skill · 阳谋师</span>
+      <span data-i18n="footer_note">MIT © 2026</span>
+    </div>
+  </footer>
+
+  <script src="assets/cases-data.js"></script>
+  <script src="assets/cases.js"></script>
+  <script src="assets/gallery.js"></script>
+</body>
+</html>
