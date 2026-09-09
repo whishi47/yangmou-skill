@@ -6,6 +6,7 @@ window.YANGMOU_FLOWS = [
     subtitle: "客户拿竞品报价压我，怎么保住毛利？",
     subtitleEn: "A customer uses a competitor quote to squeeze price. How do I protect margin?",
     img: "images/flows/sales-price.png",
+    imgEn: "images/flows/sales-price-en.png",
     cases: ["推恩令", "杯酒释兵权", "挟天子以令诸侯"],
     casesEn: ["Tui'en Decree", "Release military power over wine", "Hold the Son of Heaven hostage"],
     steps: [
@@ -30,6 +31,7 @@ window.YANGMOU_FLOWS = [
     subtitle: "项目总被拖延，怎么推进？",
     subtitleEn: "A cross-team project keeps stalling. How do we push it forward?",
     img: "images/flows/cross-department.png",
+    imgEn: "images/flows/cross-department-en.png",
     cases: ["合纵连横", "长期博弈论"],
     casesEn: ["Vertical and horizontal alliances", "Long-term game theory"],
     steps: [
@@ -54,6 +56,7 @@ window.YANGMOU_FLOWS = [
     subtitle: "怎么提高会员复购？",
     subtitleEn: "How do we improve repeat purchases from members?",
     img: "images/flows/member-retention.png",
+    imgEn: "images/flows/member-retention-en.png",
     cases: ["Costco会员制", "冯亭献上党"],
     casesEn: ["Costco membership model", "Feng Ting offers Shangdang"],
     steps: [
@@ -78,6 +81,7 @@ window.YANGMOU_FLOWS = [
     subtitle: "同事抢功，怎么拿到主导权？",
     subtitleEn: "A colleague takes credit. How do I regain the lead?",
     img: "images/flows/workplace-recognition.png",
+    imgEn: "images/flows/workplace-recognition-en.png",
     cases: ["杯酒释兵权", "淘汰守规者定律"],
     casesEn: ["Release military power over wine", "Eliminating rule-followers law"],
     steps: [
@@ -114,6 +118,7 @@ function renderFlows() {
     const title = lang === "en" ? flow.titleEn : flow.title;
     const subtitle = lang === "en" ? flow.subtitleEn : flow.subtitle;
     const cases = (lang === "en" ? flow.casesEn : flow.cases).map(c => `<span class="flow-case">${escapeHtml(c)}</span>`).join("");
+    const img = lang === "en" && flow.imgEn ? flow.imgEn : flow.img;
     const steps = (lang === "en" ? flow.stepsEn : flow.steps).map(step => `
       <li class="flow-step">
         <span class="flow-step-label">${escapeHtml(step.label)}</span>
@@ -123,7 +128,7 @@ function renderFlows() {
     return `
       <article class="flow-card" id="${escapeHtml(flow.id)}">
         <div class="flow-media">
-        <img src="${escapeHtml(flow.img)}" alt="${escapeHtml(lang === "en" ? `${flow.titleEn} workflow diagram` : `${flow.title}流程图`)}" loading="lazy" />
+        <img src="${escapeHtml(img)}" alt="${escapeHtml(lang === "en" ? `${flow.titleEn} workflow diagram` : `${flow.title}流程图`)}" loading="lazy" />
         </div>
         <div class="flow-body">
           <p class="flow-kicker">${escapeHtml(window.yangmou.I18N.flow_kicker[lang])}</p>
