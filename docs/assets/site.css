@@ -415,6 +415,16 @@ button:hover, .pill-button:hover {
   font-size: 13px;
 }
 
+.tag-label {
+  margin-right: 2px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--paper);
+  border: 1px solid var(--line-strong);
+  font-weight: 600;
+  color: var(--primary-deep);
+}
+
 .details-body {
   border-top: 1px solid var(--line);
   padding: 18px;
