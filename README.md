@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <a href="#中文">中文</a> · <a href="#english">English</a> · <a href="./README.zh-CN.md">纯中文版</a> · <a href="./README.en.md">English-only</a>
+  <a href="./README_ZH.md">纯中文版</a> · <a href="./README_EN.md">English-only</a> · <a href="#中文">页内中文</a> · <a href="#english">English below</a>
 </p>
 
 <p align="center">
@@ -18,6 +18,12 @@
   <img alt="Cases" src="https://img.shields.io/badge/cases-88-c89335" />
   <img alt="Domains" src="https://img.shields.io/badge/domains-7-0f766e" />
   <img alt="License" src="https://img.shields.io/badge/license-MIT-15803d" />
+</p>
+
+<p align="center">
+  <a href="https://whishi47.github.io/yangmou-skill/">Open the live atlas</a> ·
+  <a href="https://whishi47.github.io/yangmou-skill/gallery.html">Browse the gallery</a> ·
+  <a href="https://whishi47.github.io/yangmou-skill/flows.html">View user flows</a>
 </p>
 
 ---
@@ -112,6 +118,23 @@ python scripts/retrieve.py "会员复购机制" --pillar 规则 --top 5
 
 完整中文说明见 [README.zh-CN.md](./README.zh-CN.md)。
 
+## 静态案例站
+
+仓库 `docs/` 目录是一个可直接部署到 GitHub Pages 的静态案例站：
+
+- `docs/index.html`：主页，展示案例总数、原典书目、三支柱与七领域入口。
+- `docs/gallery.html`：88 条案例可视化画廊，支持按领域/支柱/原典/类型浏览、展开详情与 `#caseId` 深链。
+- `docs/flows.html`：4 条模拟用户使用阳谋师 Skill 的流程图，覆盖销售压价、跨部门推进、会员复购与职场明牌。
+- `docs/assets/cases.json`：由 `scripts/build_docs.py` 从 `references/cases.json` 生成，静态站直接读取。
+
+本地预览：
+
+```bash
+python -m http.server 8080 -d docs
+```
+
+然后打开 `http://localhost:8080/`。GitHub Pages 可把发布目录设为 `docs/`。
+
 ---
 
 <h2 id="english">English</h2>
@@ -170,7 +193,7 @@ This is an **Agent Skills workflow**, not a fixed-folder plugin. Choose the conn
 | Supports attachments | File context | Attach `SKILL.md`, plus `references/` when retrieval is needed |
 | Chat only | Chat context | Paste the relevant part of `SKILL.md`, then describe the dilemma |
 
-For full English instructions, examples, and local retrieval, see [README.en.md](./README.en.md).
+For full English instructions, examples, and local retrieval, see [README_EN.md](./README_EN.md).
 
 ## License
 
