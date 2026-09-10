@@ -77,25 +77,31 @@ function stateFromUrl() {
   };
 }
 
-function detailBlock(title, value, lang) {
-  if (!value) return "";
-  return `<div class="detail-block"><h4>${escapeHtml(title)}</h4><p>${escapeHtml(value)}</p></div>`;
+function detailBlock(title, value, englishValue, key) {
+  if (!value && !englishValue) return "";
+  const english = englishValue || (window.YANGMOU_CASES_EN && key ? window.YANGMOU_CASES_EN[key]?.summary : "See the Chinese source text above.");
+  return `<div class="detail-block">
+    <h4>${escapeHtml(title.zh)} <span>/ ${escapeHtml(title.en)}</span></h4>
+    ${value ? `<p class="detail-line detail-line-zh"><span class="detail-lang">中文</span>${escapeHtml(value)}</p>` : ""}
+    ${english ? `<p class="detail-line detail-line-en"><span class="detail-lang">EN</span>&nbsp;${escapeHtml(english)}</p>` : ""}
+  </div>`;
 }
 
 function renderCaseCard(caseItem) {
   const lang = window.yangmou.getLang();
   const en = lang === "en" ? (window.YANGMOU_CASES_EN || {})[caseItem.id] : null;
+  const englishDetails = (window.YANGMOU_CASES_DETAILS_EN || {})[caseItem.id] || {};
   const name = en && en.name ? en.name : caseItem.name;
   const summary = en && en.summary ? en.summary : caseItem.summary;
   const bookName = lang === "en" && window.yangmouBookLabels[caseItem.book] ? window.yangmouBookLabels[caseItem.book] : caseItem.book;
-  const label = (key) => escapeHtml(DETAIL_LABELS[key][lang] || DETAIL_LABELS[key].zh);
-  const fieldName = (key) => escapeHtml(lang === "en" ? (FIELD_LABELS[key] || key) : key);
+  const label = (key) => DETAIL_LABELS[key];
+  const fieldName = (key) => `${escapeHtml(key)} <span>/ ${escapeHtml(FIELD_LABELS[key] || key)}</span>`;
   const pillarName = (p) => escapeHtml(lang === "en" ? (PILLAR_LABELS[p] || p) : p);
   const pillars = (caseItem.pillars || []).map(p => `<span class="${window.yangmou.pillarClass(p)}">${pillarName(p)}</span>`).join("");
   const tags = (caseItem.tags || []).map(t => `<span>${escapeHtml(t)}</span>`).join("<span class=\"tag-sep\">·</span>");
   const fields = Object.entries(caseItem.fields || {}).map(([key, value]) => `<div class="field-box"><h5>${fieldName(key)}</h5><p>${escapeHtml(value)}</p></div>`).join("");
   const source = caseItem.source_url ? `<p class="source-link"><a href="${escapeHtml(caseItem.source_url)}" target="_blank" rel="noopener">${escapeHtml(caseItem.source_url)}</a></p>` : "";
-  const sourceText = caseItem.source_text && lang === "zh" ? `<div class="detail-block"><h4>${label("source_text")}</h4><blockquote>${escapeHtml(caseItem.source_text)}</blockquote></div>` : "";
+  const sourceText = caseItem.source_text ? `<div class="detail-block source-block"><h4>${escapeHtml(label("source_text").zh)} <span>/ ${escapeHtml(label("source_text").en)}</span></h4><blockquote>${escapeHtml(caseItem.source_text)}</blockquote></div>` : "";
 
   return `<details class="case-card" id="${escapeHtml(caseItem.id)}">
     <summary class="case-card-summary">
@@ -110,13 +116,13 @@ function renderCaseCard(caseItem) {
       ${lang === "zh" && tags ? `<div class="tag-row">${tags}</div>` : ""}
     </summary>
     <div class="details-body">
-      ${detailBlock(label("background"), caseItem.background)}
-      ${detailBlock(label("lock_mechanism"), caseItem.lock_mechanism)}
-      ${detailBlock(label("open_move"), caseItem.open_move)}
-      ${detailBlock(label("outcome"), caseItem.outcome)}
-      ${detailBlock(label("transfer_models"), caseItem.transfer_models)}
-      ${detailBlock(label("sales_transfer"), caseItem.sales_transfer)}
-      ${fields ? `<div class="detail-block"><h4>${label("fields")}</h4><div class="field-grid">${fields}</div></div>` : ""}
+      ${detailBlock(label("background"), caseItem.background, englishDetails.background || (en && en.summary), caseItem.id)}
+      ${detailBlock(label("lock_mechanism"), caseItem.lock_mechanism, englishDetails.lock_mechanism || (en && en.summary), caseItem.id)}
+      ${detailBlock(label("open_move"), caseItem.open_move, englishDetails.open_move || (en && en.summary), caseItem.id)}
+      ${detailBlock(label("outcome"), caseItem.outcome, englishDetails.outcome || (en && en.summary), caseItem.id)}
+      ${detailBlock(label("transfer_models"), caseItem.transfer_models, englishDetails.transfer_models || (en && en.summary), caseItem.id)}
+      ${detailBlock(label("sales_transfer"), caseItem.sales_transfer, englishDetails.sales_transfer || (en && en.summary), caseItem.id)}
+      ${fields ? `<div class="detail-block"><h4>${escapeHtml(label("fields").zh)} <span>/ ${escapeHtml(label("fields").en)}</span><small class="detail-note">七领域 / Seven domains</small></h4><div class="field-grid">${fields}</div></div>` : ""}
       ${sourceText}
       ${source}
     </div>
