@@ -99,6 +99,7 @@ function renderCaseCard(caseItem) {
   const pillarName = (p) => escapeHtml(lang === "en" ? (PILLAR_LABELS[p] || p) : p);
   const pillars = (caseItem.pillars || []).map(p => `<span class="${window.yangmou.pillarClass(p)}">${pillarName(p)}</span>`).join("");
   const tags = (caseItem.tags || []).map(t => `<span>${escapeHtml(t)}</span>`).join("<span class=\"tag-sep\">·</span>");
+  const tagRow = tags ? `<div class="tag-row"><span class="tag-label">标签 / Tags</span>${tags}</div>` : "";
   const fields = Object.entries(caseItem.fields || {}).map(([key, value]) => `<div class="field-box"><h5>${fieldName(key)}</h5><p>${escapeHtml(value)}</p></div>`).join("");
   const source = caseItem.source_url ? `<p class="source-link"><a href="${escapeHtml(caseItem.source_url)}" target="_blank" rel="noopener">${escapeHtml(caseItem.source_url)}</a></p>` : "";
   const sourceText = caseItem.source_text ? `<div class="detail-block source-block"><h4>${escapeHtml(label("source_text").zh)} <span>/ ${escapeHtml(label("source_text").en)}</span></h4><blockquote>${escapeHtml(caseItem.source_text)}</blockquote></div>` : "";
@@ -113,7 +114,7 @@ function renderCaseCard(caseItem) {
       <h3>${escapeHtml(name)}</h3>
       <p class="summary">${escapeHtml(summary)}</p>
       <div class="pillar-row">${pillars}</div>
-      ${lang === "zh" && tags ? `<div class="tag-row">${tags}</div>` : ""}
+      ${tagRow}
     </summary>
     <div class="details-body">
       ${detailBlock(label("background"), caseItem.background, englishDetails.background || (en && en.summary), caseItem.id)}
